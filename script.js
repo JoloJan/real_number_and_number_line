@@ -173,3 +173,38 @@ clearButton.onclick = () => {
 };
 
 updateDisplay();
+
+
+// Information sidebar
+// Edit this section to change what appears in the sidebar.
+const sidebarInfo = {
+  title: "Real Number and Number Line",
+  sections: [
+    {
+      heading: "MODULE 2 GROUP - BSCS 2A",
+      text: "Math 12"
+    }
+  ]
+};
+
+function renderSidebarInfo() {
+  document.getElementById("infoTitle").textContent = sidebarInfo.title;
+  const content = document.getElementById("infoContent");
+  content.innerHTML = "";
+
+  sidebarInfo.sections.forEach(section => {
+    const block = document.createElement("section");
+    block.className = "info-block";
+
+    const heading = document.createElement("h3");
+    heading.textContent = section.heading;
+
+    const text = document.createElement("p");
+    text.textContent = section.text;
+
+    block.append(heading, text);
+    content.appendChild(block);
+  });
+}
+
+renderSidebarInfo();
